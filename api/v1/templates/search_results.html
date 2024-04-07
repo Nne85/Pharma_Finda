@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pharma_Finda - Search Results</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles/search_results.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1>Search Results for "{{ query }}"</h1>
+    <p><a href="{{ url_for('appviews.landing_page') }}">New Search</a></p>
+    {% if pharmacies %}
+      <ul>
+        {% for pharmacy in pharmacies %}
+          <li>
+            <h2>Pharmacy: {{ pharmacy["name"] }}</h2>
+            <p>Location: {{ pharmacy["address"] }}, {{ pharmacy["city"] }}, {{ pharmacy["state"] }}</p>
+            <p>Drug: {{ pharmacy["drug_name"] }} (Price: ${{ pharmacy["price"] }})</p>
+          </li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p>No results found for "{{ query }}"</p>
+    {% endif %}
+  </div>
+
+</body>
+</html>

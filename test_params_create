@@ -1,0 +1,6 @@
+create PharmacyStore name="GrandMate Pharmacy"
+create PharmacyStore name="Wellness Pharmacy"
+all PharmacyStore
+
+create Drug drug_id="0001" store_id="0001" name="Nifidipine 20mg" description="Manages High Blood Pressure" price=200 in_stock="True" category="High Blood Pressure Management" 
+all Drug

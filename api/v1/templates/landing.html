@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pharma_Finda</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles/landing.css') }}">
+</head>
+<body>
+  <div class="container">
+    <p>Welcome to Pharma_Finda!</p>
+    <p>Find the nearest pharmacy selling the drug you need</p>
+
+    <form id="search-form" action="{{ url_for('appviews.search_results') }}" method="POST">
+      <input type="text" name="query" placeholder="Enter drug name...">
+      <button type="submit">Search</button>
+    </form>
+
+    <div class="auth-buttons">
+      <a href="{{ url_for('appviews.login_user') }}">Login</a>
+      <a href="{{ url_for('appviews.register') }}">Register</a>
+    </div>
+
+    <p>Don't have an account? <a href="{{ url_for('appviews.register') }}">Register here</a>.</p>
+  </div>
+
+  
+</body>
+</html>

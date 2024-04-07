@@ -1,0 +1,132 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+}
+
+.header {
+    text-align: center;
+    padding: 20px;
+    background-color: #007BFF;
+    color: #fff;
+}
+
+.login-container {
+    width: 300px;
+    margin: 0 auto;
+    margin-top: 100px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.login-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.input-field {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.register-link {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #007BFF;
+    color: #fff;
+}
+
+/* Custom CSS for the logo */
+.logo-text {
+    font-size: 24px; 
+    font-weight: bold; 
+    font-family: Arial, sans-serif;
+}
+
+.logo-text-top {
+    color: rgba(0, 128, 0, 1); 
+    font-size: 18px;
+}
+
+.logo-text-bottom { 
+    position: relative; /* Enable relative positioning */
+    top: -15px; /* Move the bottom text upward to remove space */
+    color: rgba(200, 0, 0, 1); 
+}
+
+/* Styles for the carousel */
+.carousel {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.card {
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+    background-color: #007BFF;
+    color: #fff;
+    padding: 10px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.card h3 {
+    margin: 0;
+}
+
+.card p {
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+.card-body {
+    padding: 10px;
+}
+
+/* Styles for the search container */
+.search-container {
+    display: flex;
+    margin-top: 20px;
+}
+
+#searchInput {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+}
+
+#searchButton {
+    padding: 10px 20px;
+    background-color: rgba(0, 128, 0, 1);
+    color: #fff;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+}
+
+#searchButton:hover {
+    background-color: rgba(0, 100, 0, 1);
+}

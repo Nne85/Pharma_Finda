@@ -1,0 +1,9 @@
+PHARMACY_MYSQL_USER='pharmacy_dev'               # MySQL database user
+PHARMACY_MYSQL_PWD='pharmacy_dev_pwd'            # MySQL database password
+PHARMACY_MYSQL_HOST='localhost'                  # MySQL database host
+PHARMACY_MYSQL_DB='pharmacy_dev_db'              # MySQL database name
+#PHARMACY_TYPE_STORAGE='db'                      # Storage type (e.g., 'db' or 'file')
+PHARMACY_API_HOST='0.0.0.0'                      # API host (0.0.0.0 for all network interfaces)
+PHARMACY_API_PORT=5000                           # API port (5000)
+PHARMACY_Storage='db'
+FLASK_APP="api/v1/app.py"
