@@ -3,23 +3,41 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pharma_Finda - Search Results</title>
+  <title>Pharmacy Finder - Search Results</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='styles/search_results.css') }}">
 </head>
 <body>
   <div class="container">
     <h1>Search Results for "{{ query }}"</h1>
-    <p><a href="{{ url_for('appviews.landing_page') }}">New Search</a></p>
+    <div class="button-container">
+      <button class="new-search-btn"><a href="{{ url_for('appviews.landing_page') }}">New Search</a></button>
+      <button class="dashboard-btn"><a href="{{ url_for('appviews.dashboard') }}">Dashboard</a></button>
+    </div>
     {% if pharmacies %}
-      <ul>
-        {% for pharmacy in pharmacies %}
-          <li>
-            <h2>Pharmacy: {{ pharmacy["name"] }}</h2>
-            <p>Location: {{ pharmacy["address"] }}, {{ pharmacy["city"] }}, {{ pharmacy["state"] }}</p>
-            <p>Drug: {{ pharmacy["drug_name"] }} (Price: ${{ pharmacy["price"] }})</p>
-          </li>
-        {% endfor %}
-      </ul>
+      <table>
+        <thead>
+          <tr>
+            <th>Pharmacy Name</th>
+            <th>Address</th>
+            <th>City</th>
+            <th>State</th>
+            <th>Drug Name</th>
+            <th>Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for pharmacy in pharmacies %}
+            <tr>
+              <td>{{ pharmacy["name"] }}</td>
+              <td>{{ pharmacy["address"] }}</td>
+              <td>{{ pharmacy["city"] }}</td>
+              <td>{{ pharmacy["state"] }}</td>
+              <td>{{ pharmacy["drug_name"] }}</td>
+              <td>${{ pharmacy["price"] }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
     {% else %}
       <p>No results found for "{{ query }}"</p>
     {% endif %}

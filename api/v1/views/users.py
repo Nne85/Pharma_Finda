@@ -6,6 +6,7 @@ from api.v1.views import app_views
 from flask import Flask, jsonify, request, abort, render_template, session, flash, redirect, url_for
 from werkzeug.security import generate_password_hash, check_password_hash
 import hashlib
+from datetime import datetime
 from sqlalchemy import func
 from sqlalchemy.orm import Session
 from models import storage
@@ -164,17 +165,21 @@ def search_results():
         # Handle search query from landing page form submission
         query = request.form.get("query")
         if query:
-            return redirect(url_for('appviews.search_results', query=query))
-        else:
-            return redirect(url_for("appviews.landing_page"))
-    else:
-        # Process GET request (display search results)
-        query = request.args.get("query")
-        if not query:
-            return redirect(url_for("appviews.landing_page"))
-
-        # Create an instance of the storage
-        storage.reload()
+            # Save search only if a query is provided
+            user = storage.get(User, session['user_id'])
+            if user:  # Check if a user is logged in
+                # Query the database for the drug matching the search query
+                # Assuming Drug model exists and has 'name' attribute
+                drug = storage.get(Drug, name=query)
+                if drug:
+                    # If drug found, create and save UserSearches instance
+                    search = UserSearches(
+                        user_id=user.id,
+                        drug_id=drug.id,
+                        search_query=query,
+                        search_date=datetime.now()
+                    )
+                    search.save()
 
         # Query the database for drugs with a name similar to the query
         drugs = storage.all(Drug).values()

@@ -9,14 +9,13 @@
 <body>
   <header>
     <h1>Pharma_Finda</h1>
-    <p>Welcome, [user.name]</p>
-    <a href="{{ url_for('appviews.logout') }}">Logout</a>
+    <p>Welcome, {{ user.name }}</p>  <a href="{{ url_for('appviews.logout') }}">Logout</a>
   </header>
 
   <nav>
     <ul>
-      <li><a href="{{ url_for('appviews.dashboard') }}">Dashboard</a></li>
-      <li><a href="{{ url_for('appviews.search_results') }}">Search Drugs</a></li>
+      <li><a href="{{ url_for('appviews.landing_page') }}">Home</a></li>
+      <li><a href="{{ url_for('appviews.logout_page') }}">Logout</a></li>
       <li><a href="{{ url_for('appviews.search_results') }}">Saved Searches</a></li>
     </ul>
   </nav>
@@ -24,10 +23,19 @@
   <main>
     <section>
       <h2>Saved Searches</h2>
-      <p>No saved searches yet.</p>
+      {% if saved_searches %}
+        <ul>
+          {% for search in saved_searches %}
+            <li>
+              <b>Search Query:</b> {{ search.search_query }} (searched on {{ search.search_date.strftime("%Y-%m-%d") }})
+            </li>
+          {% endfor %}
+        </ul>
+      {% else %}
+        <p>No saved searches yet.</p>
+      {% endif %}
     </section>
   </main>
 
-  
 </body>
 </html>
